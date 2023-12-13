@@ -1,9 +1,16 @@
-
 import NavBar from './components/NavBar.vue';
 
 <template>
   <NavBar/>
+  <div class="locale-changer">
+    <select v-model="$i18n.locale">
+      <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
+    </select>
+  </div>
+
+  <p class="message">{{ $t('message') }}</p>
   <router-view/>
+  
 </template>
 
 
@@ -39,4 +46,22 @@ export default {
     outline: 0;
     padding: 16px;
   }
+
+  select {
+      padding: 10px;
+      font-size: 16px;
+      width: 20%;
+      box-sizing: border-box;
+      border: 2px solid #3498db; /* Border color */
+      border-radius: 5px; /* Rounded corners */
+      appearance: none; /* Remove default arrow in some browsers */
+    }
+
+    /* Style the options */
+    option {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #f8f8f8; /* Background color */
+      color: #333; /* Text color */
+    }
 </style>

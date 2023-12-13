@@ -6,6 +6,7 @@
         <router-link to="/tasks" id="task-link">
             <h1>Tasks</h1>
         </router-link>
+        
     </div>
 </template>
 
